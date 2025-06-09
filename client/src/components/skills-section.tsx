@@ -22,9 +22,15 @@ function SkillCategory({ title, icon, skills, gradientFrom, gradientTo }: SkillC
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      whileHover={{ y: -5 }}
+      whileHover={{ 
+        y: -10,
+        rotateY: 5,
+        rotateX: 5,
+        scale: 1.02,
+      }}
+      className="perspective-1000"
     >
-      <Card className="h-full hover:shadow-xl transition-all duration-300">
+      <Card className="h-full hover:shadow-2xl transition-all duration-500 transform-3d">
         <CardContent className="p-6">
           <div className="text-center mb-6">
             <div

@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
   --background: hsl(0, 0%, 100%);
@@ -85,6 +85,26 @@
   .animate-fade-in {
     animation: fadeIn 1s ease-out;
   }
+
+  .animate-3d-rotate {
+    animation: rotate3d 20s linear infinite;
+  }
+
+  .animate-bounce-3d {
+    animation: bounce3d 2s ease-in-out infinite;
+  }
+
+  .animate-tilt {
+    animation: tilt 6s ease-in-out infinite;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
 }
 
 @keyframes float {
@@ -122,6 +142,48 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes rotate3d {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(15deg) rotateY(90deg);
+  }
+  50% {
+    transform: rotateX(0deg) rotateY(180deg);
+  }
+  75% {
+    transform: rotateX(-15deg) rotateY(270deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(360deg);
+  }
+}
+
+@keyframes bounce3d {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotateX(10deg);
+  }
+}
+
+@keyframes tilt {
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(5deg) rotateY(5deg);
+  }
+  50% {
+    transform: rotateX(0deg) rotateY(10deg);
+  }
+  75% {
+    transform: rotateX(-5deg) rotateY(5deg);
   }
 }
 

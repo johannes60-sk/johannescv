@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Download, Mail, Linkedin, Github, User } from "lucide-react";
+import { Download, Mail, Linkedin, Github } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
+import { Avatar3D } from "@/components/3d-avatar";
 
 export function HeroSection() {
   const handleDownloadCV = async () => {
@@ -69,25 +70,14 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Professional Avatar */}
+          {/* 3D Professional Avatar */}
           <motion.div
-            className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1"
-            animate={{
-              boxShadow: [
-                "0 0 20px rgba(59, 130, 246, 0.5)",
-                "0 0 30px rgba(59, 130, 246, 0.8)",
-                "0 0 20px rgba(59, 130, 246, 0.5)",
-              ],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            className="mb-8"
+            initial={{ opacity: 0, scale: 0.5, rotateY: -180 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-              <User className="text-4xl text-muted-foreground" />
-            </div>
+            <Avatar3D size="xl" className="animate-tilt" />
           </motion.div>
 
           <motion.h1
