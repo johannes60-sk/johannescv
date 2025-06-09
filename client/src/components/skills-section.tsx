@@ -1,0 +1,147 @@
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Monitor, Server, Database, Settings } from "lucide-react";
+
+interface SkillProps {
+  name: string;
+  percentage: number;
+}
+
+interface SkillCategoryProps {
+  title: string;
+  icon: React.ReactNode;
+  skills: SkillProps[];
+  gradientFrom: string;
+  gradientTo: string;
+}
+
+function SkillCategory({ title, icon, skills, gradientFrom, gradientTo }: SkillCategoryProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ y: -5 }}
+    >
+      <Card className="h-full hover:shadow-xl transition-all duration-300">
+        <CardContent className="p-6">
+          <div className="text-center mb-6">
+            <div
+              className={`w-16 h-16 bg-gradient-to-r ${gradientFrom} ${gradientTo} rounded-xl flex items-center justify-center mx-auto mb-4`}
+            >
+              <div className="text-white text-2xl">{icon}</div>
+            </div>
+            <h3 className="text-xl font-bold">{title}</h3>
+          </div>
+          <div className="space-y-4">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                className="skill-item"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <div className="flex justify-between mb-1">
+                  <span className="text-sm font-medium">{skill.name}</span>
+                  <span className="text-sm text-muted-foreground">{skill.percentage}%</span>
+                </div>
+                <div className="skill-bar bg-muted rounded-full h-2">
+                  <motion.div
+                    className={`skill-progress bg-gradient-to-r ${gradientFrom} ${gradientTo} h-2 rounded-full`}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.percentage}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 2, delay: 0.5 + index * 0.1 }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+}
+
+export function SkillsSection() {
+  const skillCategories = [
+    {
+      title: "Frontend",
+      icon: <Monitor />,
+      gradientFrom: "from-blue-500",
+      gradientTo: "to-cyan-500",
+      skills: [
+        { name: "React.js", percentage: 95 },
+        { name: "JavaScript", percentage: 90 },
+        { name: "Vue.js", percentage: 80 },
+        { name: "React Native", percentage: 85 },
+      ],
+    },
+    {
+      title: "Backend",
+      icon: <Server />,
+      gradientFrom: "from-green-500",
+      gradientTo: "to-emerald-500",
+      skills: [
+        { name: "Node.js", percentage: 90 },
+        { name: "NestJS", percentage: 88 },
+        { name: "PHP (Symfony)", percentage: 75 },
+        { name: "Java", percentage: 70 },
+      ],
+    },
+    {
+      title: "Database",
+      icon: <Database />,
+      gradientFrom: "from-purple-500",
+      gradientTo: "to-pink-500",
+      skills: [
+        { name: "MongoDB", percentage: 85 },
+        { name: "PostgreSQL", percentage: 80 },
+        { name: "MySQL", percentage: 78 },
+        { name: "Firebase", percentage: 82 },
+      ],
+    },
+    {
+      title: "Tools & DevOps",
+      icon: <Settings />,
+      gradientFrom: "from-orange-500",
+      gradientTo: "to-red-500",
+      skills: [
+        { name: "Git", percentage: 90 },
+        { name: "Docker", percentage: 75 },
+        { name: "Postman", percentage: 85 },
+        { name: "SonarQube", percentage: 70 },
+      ],
+    },
+  ];
+
+  return (
+    <section id="skills" className="py-20 bg-background">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+            Skills & Technologies
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Comprehensive technology stack for modern web development
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skillCategories.map((category, index) => (
+            <SkillCategory key={category.title} {...category} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
