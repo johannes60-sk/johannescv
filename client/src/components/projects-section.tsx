@@ -17,16 +17,61 @@ interface ProjectProps {
 function ProjectCard({ title, description, technologies, icon, gradientFrom, gradientTo, demoLink, codeLink }: ProjectProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 20, rotateX: -15 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      whileHover={{ y: -5 }}
+      transition={{ duration: 0.8 }}
+      whileHover={{ 
+        y: -15,
+        rotateY: 8,
+        rotateX: 5,
+        scale: 1.03,
+        transition: { duration: 0.3 }
+      }}
+      className="perspective-1000"
     >
-      <Card className="h-full hover:shadow-xl transition-all duration-300 overflow-hidden">
-        <div className={`h-48 bg-gradient-to-br ${gradientFrom} ${gradientTo} flex items-center justify-center`}>
-          <div className="text-white text-4xl">{icon}</div>
-        </div>
+      <Card className="h-full hover:shadow-2xl transition-all duration-500 overflow-hidden transform-3d">
+        <motion.div 
+          className={`h-48 bg-gradient-to-br ${gradientFrom} ${gradientTo} flex items-center justify-center relative overflow-hidden`}
+          whileHover={{
+            scale: 1.1,
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.div 
+            className="text-white text-4xl z-10"
+            animate={{
+              rotateY: [0, 15, -15, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            {icon}
+          </motion.div>
+          
+          {/* Floating particles */}
+          <motion.div
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: `radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+                               radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+                               radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent),
+                               radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent)`,
+              backgroundSize: '150px 100px',
+            }}
+            animate={{
+              backgroundPosition: ['0% 0%', '100% 100%'],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+        </motion.div>
         <CardContent className="p-6">
           <h3 className="text-xl font-bold mb-3">{title}</h3>
           <p className="text-muted-foreground mb-4">{description}</p>

@@ -14,41 +14,65 @@ interface ExperienceProps {
 function ExperienceItem({ title, company, period, location, achievements, isLeft = true }: ExperienceProps) {
   return (
     <motion.div
-      className={`relative flex items-center ${isLeft ? "" : "md:justify-end"}`}
-      initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      className={`relative flex items-center ${isLeft ? "" : "md:justify-end"} perspective-1000`}
+      initial={{ opacity: 0, x: isLeft ? -50 : 50, rotateY: isLeft ? -30 : 30 }}
+      whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 1 }}
     >
-      {/* Timeline dot */}
-      <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-background shadow-lg z-10" />
+      {/* Enhanced 3D Timeline dot */}
+      <motion.div 
+        className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-background shadow-lg z-10 transform-3d"
+        animate={{
+          rotateY: [0, 360],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        whileHover={{
+          scale: 1.3,
+          boxShadow: "0 0 25px rgba(59, 130, 246, 0.8)",
+        }}
+      />
       
       <div className={`ml-20 md:ml-0 ${isLeft ? "md:w-1/2 md:pr-8" : "md:w-1/2 md:pl-8"}`}>
-        <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-          <CardContent className="p-6">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-              <h3 className="text-2xl font-bold mb-2 md:mb-0">{title}</h3>
-              <span className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full">{period}</span>
-            </div>
-            <p className="text-lg font-semibold text-primary mb-2">{company}</p>
-            <p className="text-sm text-muted-foreground mb-4">{location}</p>
-            <ul className="space-y-2">
-              {achievements.map((achievement, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-start"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <CheckCircle className="text-green-500 mt-1 mr-2 h-4 w-4 flex-shrink-0" />
-                  <span className="text-sm">{achievement}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
+        <motion.div
+          whileHover={{ 
+            rotateY: isLeft ? 5 : -5,
+            rotateX: 3,
+            scale: 1.02,
+          }}
+          className="transform-3d"
+        >
+          <Card className="hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
+            <CardContent className="p-6">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 className="text-2xl font-bold mb-2 md:mb-0">{title}</h3>
+                <span className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full">{period}</span>
+              </div>
+              <p className="text-lg font-semibold text-primary mb-2">{company}</p>
+              <p className="text-sm text-muted-foreground mb-4">{location}</p>
+              <ul className="space-y-2">
+                {achievements.map((achievement, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <CheckCircle className="text-green-500 mt-1 mr-2 h-4 w-4 flex-shrink-0" />
+                    <span className="text-sm">{achievement}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
     </motion.div>
   );

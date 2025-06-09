@@ -37,31 +37,136 @@ export function HeroSection() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Background Animation */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Enhanced 3D Background Animation */}
+      <div className="absolute inset-0 overflow-hidden perspective-1000">
+        {/* Floating 3D Spheres */}
         <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-r from-purple-400 to-pink-400 dark:from-purple-600 dark:to-pink-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20"
+          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-r from-purple-400 to-pink-400 dark:from-purple-600 dark:to-pink-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20 transform-3d"
           animate={{
-            y: [0, -20, 0],
+            y: [0, -30, 0],
+            rotateX: [0, 15, 0],
+            rotateY: [0, 25, 0],
           }}
           transition={{
-            duration: 6,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
           }}
         />
         <motion.div
-          className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-r from-blue-400 to-cyan-400 dark:from-blue-600 dark:to-cyan-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20"
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-r from-blue-400 to-cyan-400 dark:from-blue-600 dark:to-cyan-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20 transform-3d"
           animate={{
-            y: [0, -20, 0],
+            y: [0, -25, 0],
+            rotateX: [0, -20, 0],
+            rotateY: [0, -30, 0],
           }}
           transition={{
-            duration: 6,
+            duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 2,
           }}
         />
+        
+        {/* Floating Geometric Shapes */}
+        <motion.div
+          className="absolute top-20 left-20 w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 opacity-10 transform-3d"
+          style={{
+            clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+          }}
+          animate={{
+            y: [-20, 20, -20],
+            rotateZ: [0, 180, 360],
+            rotateX: [0, 45, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        
+        <motion.div
+          className="absolute top-40 right-32 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 opacity-15 rounded-lg transform-3d"
+          animate={{
+            x: [-15, 15, -15],
+            rotateY: [0, 180, 360],
+            rotateZ: [0, 90, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+        
+        <motion.div
+          className="absolute bottom-32 right-20 w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 opacity-20 rounded-full transform-3d"
+          animate={{
+            y: [15, -15, 15],
+            scale: [1, 1.5, 1],
+            rotateX: [0, 360],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3,
+          }}
+        />
+        
+        <motion.div
+          className="absolute bottom-40 left-32 w-10 h-10 bg-gradient-to-br from-orange-400 to-red-500 opacity-12 transform-3d"
+          style={{
+            clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)',
+          }}
+          animate={{
+            x: [20, -20, 20],
+            rotateY: [0, 180, 360],
+            rotateZ: [0, -90, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+        />
+        
+        {/* Code-inspired floating elements */}
+        <motion.div
+          className="absolute top-60 left-40 text-2xl font-mono text-cyan-400 opacity-10"
+          animate={{
+            y: [-10, 10, -10],
+            rotateZ: [0, 5, -5, 0],
+            opacity: [0.1, 0.3, 0.1],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          {"</>"}
+        </motion.div>
+        
+        <motion.div
+          className="absolute bottom-60 right-40 text-lg font-mono text-purple-400 opacity-15"
+          animate={{
+            x: [-5, 5, -5],
+            rotateY: [0, 15, -15, 0],
+            opacity: [0.15, 0.4, 0.15],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+        >
+          {"{ }"}
+        </motion.div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">

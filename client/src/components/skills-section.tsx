@@ -33,11 +33,24 @@ function SkillCategory({ title, icon, skills, gradientFrom, gradientTo }: SkillC
       <Card className="h-full hover:shadow-2xl transition-all duration-500 transform-3d">
         <CardContent className="p-6">
           <div className="text-center mb-6">
-            <div
-              className={`w-16 h-16 bg-gradient-to-r ${gradientFrom} ${gradientTo} rounded-xl flex items-center justify-center mx-auto mb-4`}
+            <motion.div
+              className={`w-16 h-16 bg-gradient-to-r ${gradientFrom} ${gradientTo} rounded-xl flex items-center justify-center mx-auto mb-4 transform-3d`}
+              animate={{
+                rotateY: [0, 360],
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              whileHover={{
+                scale: 1.1,
+                rotateY: 180,
+                transition: { duration: 0.3 }
+              }}
             >
               <div className="text-white text-2xl">{icon}</div>
-            </div>
+            </motion.div>
             <h3 className="text-xl font-bold">{title}</h3>
           </div>
           <div className="space-y-4">
