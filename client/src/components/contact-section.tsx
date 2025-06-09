@@ -103,19 +103,48 @@ export function ContactSection() {
             transition={{ duration: 0.8 }}
           >
             {contactInfo.map((info, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${info.gradientFrom} ${info.gradientTo} rounded-xl flex items-center justify-center mr-4`}>
-                      <div className="text-white">{info.icon}</div>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20, rotateY: -30 }}
+                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{
+                  rotateY: 5,
+                  scale: 1.02,
+                  transition: { duration: 0.3 }
+                }}
+                className="perspective-1000"
+              >
+                <Card className="hover:shadow-2xl transition-all duration-500 transform-3d">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <motion.div 
+                        className={`w-12 h-12 bg-gradient-to-r ${info.gradientFrom} ${info.gradientTo} rounded-xl flex items-center justify-center mr-4 transform-3d`}
+                        animate={{
+                          rotateY: [0, 360],
+                        }}
+                        transition={{
+                          duration: 8 + index * 2,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                        whileHover={{
+                          scale: 1.2,
+                          rotateZ: 360,
+                          transition: { duration: 0.5 }
+                        }}
+                      >
+                        <div className="text-white">{info.icon}</div>
+                      </motion.div>
+                      <div>
+                        <h3 className="text-lg font-semibold">{info.title}</h3>
+                        <p className="text-muted-foreground whitespace-pre-line">{info.content}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-semibold">{info.title}</h3>
-                      <p className="text-muted-foreground whitespace-pre-line">{info.content}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
 
             <div className="flex space-x-4">

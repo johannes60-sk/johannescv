@@ -15,18 +15,40 @@ interface EducationProps {
 function EducationCard({ title, institution, period, location, icon, gradientFrom, gradientTo }: EducationProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 20, rotateX: -15, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      whileHover={{ y: -5 }}
+      transition={{ duration: 0.8 }}
+      whileHover={{ 
+        y: -10,
+        rotateY: 8,
+        rotateX: 5,
+        scale: 1.03,
+        transition: { duration: 0.3 }
+      }}
+      className="perspective-1000"
     >
-      <Card className="h-full hover:shadow-xl transition-all duration-300">
+      <Card className="h-full hover:shadow-2xl transition-all duration-500 transform-3d">
         <CardContent className="p-6">
           <div className="flex items-center mb-4">
-            <div className={`w-12 h-12 bg-gradient-to-r ${gradientFrom} ${gradientTo} rounded-xl flex items-center justify-center mr-4`}>
+            <motion.div 
+              className={`w-12 h-12 bg-gradient-to-r ${gradientFrom} ${gradientTo} rounded-xl flex items-center justify-center mr-4 transform-3d`}
+              animate={{
+                rotateY: [0, 360],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              whileHover={{
+                scale: 1.2,
+                rotateY: 180,
+                transition: { duration: 0.4 }
+              }}
+            >
               <div className="text-white">{icon}</div>
-            </div>
+            </motion.div>
             <div>
               <h3 className="text-xl font-bold">{title}</h3>
               <p className="text-muted-foreground">{period}</p>
