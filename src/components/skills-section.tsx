@@ -93,10 +93,10 @@ export function SkillsSection() {
       gradientFrom: "from-blue-500",
       gradientTo: "to-cyan-500",
       skills: [
-        { name: "React.js", percentage: 95 },
-        { name: "JavaScript", percentage: 90 },
-        { name: "Vue.js", percentage: 80 },
-        { name: "React Native", percentage: 85 },
+        { name: "React.js", percentage: 65 },
+        { name: "JavaScript", percentage: 60 },
+        { name: "Vue.js", percentage: 40 },
+        { name: "React Native", percentage: 55 },
       ],
     },
     {
@@ -105,10 +105,10 @@ export function SkillsSection() {
       gradientFrom: "from-green-500",
       gradientTo: "to-emerald-500",
       skills: [
-        { name: "Node.js", percentage: 90 },
-        { name: "NestJS", percentage: 88 },
-        { name: "PHP (Symfony)", percentage: 75 },
-        { name: "Java", percentage: 70 },
+        { name: "Node.js", percentage: 65 },
+        { name: "NestJS", percentage: 65 },
+        { name: "PHP (Symfony)", percentage: 50 },
+        { name: "Java", percentage: 55 },
       ],
     },
     {
@@ -117,10 +117,10 @@ export function SkillsSection() {
       gradientFrom: "from-purple-500",
       gradientTo: "to-pink-500",
       skills: [
-        { name: "MongoDB", percentage: 85 },
-        { name: "PostgreSQL", percentage: 80 },
-        { name: "MySQL", percentage: 78 },
-        { name: "Firebase", percentage: 82 },
+        { name: "MongoDB", percentage: 65 },
+        { name: "PostgreSQL", percentage: 60 },
+        { name: "MySQL", percentage: 60 },
+        { name: "Firebase", percentage: 55 },
       ],
     },
     {
@@ -129,10 +129,10 @@ export function SkillsSection() {
       gradientFrom: "from-orange-500",
       gradientTo: "to-red-500",
       skills: [
-        { name: "Git", percentage: 90 },
-        { name: "Docker", percentage: 75 },
-        { name: "Postman", percentage: 85 },
-        { name: "SonarQube", percentage: 70 },
+        { name: "Git", percentage: 80 },
+        { name: "Docker", percentage: 70 },
+        { name: "Postman", percentage: 75 },
+        { name: "SonarQube", percentage: 65 },
       ],
     },
   ];
