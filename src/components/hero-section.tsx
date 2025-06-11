@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Download, Mail, Linkedin, Github } from "lucide-react";
+import { Download, Mail, Linkedin, Github, Eye } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { Avatar3D } from "@/components/3d-avatar";
 
@@ -36,7 +36,10 @@ export function HeroSection() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+    >
       {/* Enhanced 3D Background Animation */}
       <div className="absolute inset-0 overflow-hidden perspective-1000">
         {/* Floating 3D Spheres */}
@@ -67,12 +70,12 @@ export function HeroSection() {
             delay: 2,
           }}
         />
-        
+
         {/* Floating Geometric Shapes */}
         <motion.div
           className="absolute top-20 left-20 w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 opacity-10 transform-3d"
           style={{
-            clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+            clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
           }}
           animate={{
             y: [-20, 20, -20],
@@ -85,7 +88,7 @@ export function HeroSection() {
             ease: "easeInOut",
           }}
         />
-        
+
         <motion.div
           className="absolute top-40 right-32 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 opacity-15 rounded-lg transform-3d"
           animate={{
@@ -100,7 +103,7 @@ export function HeroSection() {
             delay: 1,
           }}
         />
-        
+
         <motion.div
           className="absolute bottom-32 right-20 w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 opacity-20 rounded-full transform-3d"
           animate={{
@@ -115,11 +118,12 @@ export function HeroSection() {
             delay: 3,
           }}
         />
-        
+
         <motion.div
           className="absolute bottom-40 left-32 w-10 h-10 bg-gradient-to-br from-orange-400 to-red-500 opacity-12 transform-3d"
           style={{
-            clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)',
+            clipPath:
+              "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
           }}
           animate={{
             x: [20, -20, 20],
@@ -133,7 +137,7 @@ export function HeroSection() {
             delay: 0.5,
           }}
         />
-        
+
         {/* Code-inspired floating elements */}
         <motion.div
           className="absolute top-60 left-40 text-2xl font-mono text-cyan-400 opacity-10"
@@ -150,7 +154,7 @@ export function HeroSection() {
         >
           {"</>"}
         </motion.div>
-        
+
         <motion.div
           className="absolute bottom-60 right-40 text-lg font-mono text-purple-400 opacity-15"
           animate={{
@@ -209,9 +213,9 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Passionate fullstack developer specialized in JavaScript with solid experience in
-            React.js, Node.js, NestJS and React Native. I build performant, maintainable and
-            scalable web applications.
+            Passionate fullstack developer specialized in JavaScript with solid
+            experience in React.js, Node.js, NestJS and React Native. I build
+            performant, maintainable and scalable web and mobile applications.
           </motion.p>
 
           <motion.div
@@ -220,21 +224,28 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <Button
-              onClick={handleContactClick}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+            <a
+              href="/cv_johannes.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Mail className="mr-2 h-4 w-4" />
-              Get In Touch
-            </Button>
-            <Button
-              onClick={handleDownloadCV}
-              variant="outline"
-              className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-full font-semibold transition-all duration-200"
-            >
-              <Download className="mr-2 h-4 w-4" />
-              Download CV
-            </Button>
+              <Button
+                onClick={handleContactClick}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <Eye className="mr-2 h-4 w-4" />
+                Voir CV
+              </Button>
+            </a>
+            <a href="/cv_johannes.pdf" download>
+              <Button
+                variant="outline"
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-full font-semibold transition-all duration-200"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Download CV
+              </Button>
+            </a>
           </motion.div>
 
           <motion.div
@@ -244,7 +255,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 1 }}
           >
             <a
-              href="https://linkedin.com/in/johannes-houenou"
+              href="https://www.linkedin.com/in/johannes60/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary text-2xl transition-colors duration-200 transform hover:scale-110"
@@ -252,7 +263,7 @@ export function HeroSection() {
               <Linkedin />
             </a>
             <a
-              href="https://github.com/johannes-houenou"
+              href="https://github.com/johannes60-sk"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary text-2xl transition-colors duration-200 transform hover:scale-110"

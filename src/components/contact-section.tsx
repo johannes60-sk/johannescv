@@ -153,7 +153,7 @@ export function ContactSection() {
                 className="flex-1 bg-blue-600 hover:bg-blue-700"
               >
                 <a
-                  href="https://linkedin.com/in/johannes-houenou"
+                  href="https://www.linkedin.com/in/johannes60/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -167,7 +167,7 @@ export function ContactSection() {
                 className="flex-1"
               >
                 <a
-                  href="https://github.com/johannes-houenou"
+                  href="https://github.com/johannes60-sk"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

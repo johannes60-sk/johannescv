@@ -74,7 +74,7 @@ export function EducationSection() {
       gradientTo: "to-purple-600",
     },
     {
-      title: "Bachelor Web & Mobile Development",
+      title: "Bachelor Développement Web et Mobile",
       institution: "ECE - École d'ingénieur",
       period: "2022 - 2023",
       location: "Paris, France",
@@ -83,7 +83,7 @@ export function EducationSection() {
       gradientTo: "to-pink-500",
     },
     {
-      title: "Web Development Training",
+      title: " Formation d’initiation en développement web ",
       institution: "EIGB",
       period: "2021 - 2022",
       location: "Cotonou, Benin",
@@ -92,7 +92,7 @@ export function EducationSection() {
       gradientTo: "to-emerald-500",
     },
     {
-      title: "License Telecom & IT Engineering",
+      title: "Licence en génie télécom et informatique",
       institution: "UCAO",
       period: "2018 - 2021",
       location: "Cotonou, Benin",
