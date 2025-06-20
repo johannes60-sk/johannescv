@@ -35,6 +35,27 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "delta-flow",
+    title: "DeltaFlow",
+    description:
+      "C'est est un outil web pour comparer, formater, modifier et visualiser des fichiers JSON avec une expérience fluide, pensée pour les développeurs.",
+    technologies: ["Nestjs"],
+    icon: "FileJson",
+    thumbnail:
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750359099/json_blocs_pcank0.png",
+    demoLink: "https://delta-flow.netlify.app/",
+    codeLink: "https://github.com/johannes60-sk/delta-flow",
+    subtitle: " JSON File Management Tool",
+    client: "Projet Personel",
+    capture: [
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750357166/json_blocs_vbywvr.png",
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750357179/result-vueside-by-side_shhqco.png",
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750357175/result-vue-unified_cbupzf.png",
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750357172/tree-view_melxzh.png",
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750357187/stats_pxme9y.png",
+    ],
+  },
+  {
     id: "json-file-manager",
     title: "JSON File Manager",
     description:
@@ -86,6 +107,27 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1749601293/200shots_so_nbbtfo.png",
       "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1749601290/316shots_so_mugoau.png",
       "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1749601293/295shots_so_lyxfwj.png",
+    ],
+  },
+  {
+    id: "feed-back-hub",
+    title: "FeedBackHub",
+    description:
+      "C'est une plateforme web moderne inspirée de Canny.io, conçue pour centraliser les retours utilisateurs, prioriser les idées, et améliorer les produits avec transparence et collaboration",
+    technologies: ["Nestjs"],
+    icon: "Play",
+    thumbnail:
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750364175/accueil_iwbl0g.png",
+    demoLink: "https://feed-back-hub.netlify.app/",
+    codeLink: "https://github.com/johannes60-sk/feedback-hub",
+    subtitle: "Feedback Management Platform",
+    client: "Projet Personel",
+    capture: [
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750363290/stat-dash_uin3pc.png",
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750363293/project_afbho1.png",
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750363284/product-feedback2_h4aqnt.png",
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750363293/share_eoecoj.png",
+      "https://res.cloudinary.com/dpvoo7j4v/image/upload/v1750363282/share-your-udea_d9c77e.png",
     ],
   },
   {
