@@ -141,6 +141,21 @@ export function ProjectsSection() {
             <ProjectCard key={project.id} {...project} index={project.id} />
           ))}
         </div>
+        <div className="text-center mt-6">
+          <motion.a
+            href="https://github.com/johannes60-sk?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Github className="mr-2 h-5 w-5" />
+            Voir tous les projets
+          </motion.a>
+        </div>
       </div>
     </section>
   );
